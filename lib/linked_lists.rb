@@ -31,8 +31,3 @@ class Node
     @next_node = next_node
   end
 end
-
-a = LinkedList.new
-a.append("1")
-a.append("2")
-p a
