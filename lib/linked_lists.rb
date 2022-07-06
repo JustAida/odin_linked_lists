@@ -23,6 +23,8 @@ class LinkedList
   end
 
   def size
+    return 0 if @head.nil?
+
     size = 1
     temp = @head
     until temp.next_node.nil?
