@@ -42,6 +42,17 @@ class LinkedList
 
     temp
   end
+
+  def pop
+    return nil if @head.nil?
+
+    temp = @head
+    temp = temp.next_node until temp.next_node == @tail
+    del = temp.next_node
+    temp.next_node = nil
+    @tail = temp
+    del
+  end
 end
 
 class Node
@@ -58,4 +69,5 @@ linked_lists.append(1)
 linked_lists.append(2)
 linked_lists.prepend(3)
 
-p linked_lists.at(1)
+p linked_lists.pop
+p linked_lists
