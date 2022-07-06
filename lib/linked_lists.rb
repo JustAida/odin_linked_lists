@@ -21,6 +21,25 @@ class LinkedList
 
     @head = Node.new(value, @head)
   end
+
+  def size
+    size = 1
+    temp = @head
+    until temp.next_node.nil?
+      temp = temp.next_node
+      size += 1
+    end
+    size
+  end
+
+  def at(index)
+    return @head if index == 0
+
+    temp = @head
+    1.upto(index) { temp = temp.next_node }
+
+    temp
+  end
 end
 
 class Node
@@ -31,3 +50,10 @@ class Node
     @next_node = next_node
   end
 end
+
+linked_lists = LinkedList.new
+linked_lists.append(1)
+linked_lists.append(2)
+linked_lists.prepend(3)
+
+p linked_lists.at(1)
