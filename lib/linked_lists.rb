@@ -101,6 +101,23 @@ class LinkedList
 
     prev.next_node = Node.new(value, cur)
   end
+
+  def remove_at(index)
+    return p nil if index < 0 || index > (size - 1)
+    return pop if index == (size - 1)
+    return @head = @head.next_node if index == 0
+
+    prev = nil
+    cur = @head
+    idx = 0
+    until idx == index || cur.nil?
+      prev = cur
+      cur = cur.next_node
+      idx += 1
+    end
+
+    prev.next_node = Node.new(cur.next_node.value, cur.next_node.next_node)
+  end
 end
 
 class Node
@@ -117,5 +134,5 @@ linked_lists.append(1)
 linked_lists.append(2)
 linked_lists.prepend(3)
 
-linked_lists.insert_at(4, 2)
+linked_lists.remove_at(2)
 puts linked_lists
