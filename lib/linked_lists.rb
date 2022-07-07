@@ -75,6 +75,16 @@ class LinkedList
 
     index
   end
+
+  def to_s
+    temp = @head
+    string = ""
+    until temp.nil?
+      string << "( #{temp.value} ) -> "
+      temp = temp.next_node
+    end
+    string << "nil"
+  end
 end
 
 class Node
@@ -91,6 +101,4 @@ linked_lists.append(1)
 linked_lists.append(2)
 linked_lists.prepend(3)
 
-p linked_lists
-p linked_lists.find(2)
-
+puts linked_lists
