@@ -53,6 +53,14 @@ class LinkedList
     @tail = temp
     del
   end
+
+  def contains?(value)
+    return true if @head.value == value
+
+    temp = @head
+    temp = temp.next_node until temp.value == value || temp.next_node.nil?
+    temp.value == value
+  end
 end
 
 class Node
@@ -69,5 +77,5 @@ linked_lists.append(1)
 linked_lists.append(2)
 linked_lists.prepend(3)
 
-p linked_lists.pop
-p linked_lists
+p linked_lists.contains?(20)
+
