@@ -93,7 +93,7 @@ class LinkedList
     prev = nil
     cur = @head
     idx = 0
-    until idx == index || cur.nil?
+    until idx == index
       prev = cur
       cur = cur.next_node
       idx += 1
@@ -110,7 +110,7 @@ class LinkedList
     prev = nil
     cur = @head
     idx = 0
-    until idx == index || cur.nil?
+    until idx == index
       prev = cur
       cur = cur.next_node
       idx += 1
@@ -128,11 +128,3 @@ class Node
     @next_node = next_node
   end
 end
-
-linked_lists = LinkedList.new
-linked_lists.append(1)
-linked_lists.append(2)
-linked_lists.prepend(3)
-
-linked_lists.remove_at(2)
-puts linked_lists
