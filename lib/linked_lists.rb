@@ -61,6 +61,20 @@ class LinkedList
     temp = temp.next_node until temp.value == value || temp.next_node.nil?
     temp.value == value
   end
+
+  def find(value)
+    return nil if @head.nil?
+
+    temp = @head
+    index = 0
+    until temp.value == value
+      temp = temp.next_node
+      index += 1
+      return nil if temp.nil?
+    end
+
+    index
+  end
 end
 
 class Node
@@ -77,5 +91,6 @@ linked_lists.append(1)
 linked_lists.append(2)
 linked_lists.prepend(3)
 
-p linked_lists.contains?(20)
+p linked_lists
+p linked_lists.find(2)
 
