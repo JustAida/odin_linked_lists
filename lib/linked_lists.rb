@@ -85,6 +85,22 @@ class LinkedList
     end
     string << "nil"
   end
+
+  def insert_at(value, index)
+    return prepend(value) if index == 0
+    return puts "Invalid index value." if index < 0 || index > (size - 1)
+
+    prev = nil
+    cur = @head
+    idx = 0
+    until idx == index || cur.nil?
+      prev = cur
+      cur = cur.next_node
+      idx += 1
+    end
+
+    prev.next_node = Node.new(value, cur)
+  end
 end
 
 class Node
@@ -101,4 +117,5 @@ linked_lists.append(1)
 linked_lists.append(2)
 linked_lists.prepend(3)
 
+linked_lists.insert_at(4, 2)
 puts linked_lists
